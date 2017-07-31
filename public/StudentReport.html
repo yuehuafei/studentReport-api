@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩单</title>
+    <link rel="stylesheet" href="addStudent.html">
+    <link rel="stylesheet" href="searchStudent.html">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <!--<script src="./deleteStudent.js"></script>-->
+    <style>
+        #main{
+            width: 500px;
+           background-color: aliceblue;
+            margin: 0 auto;
+        }
+    </style>
+    <script language="javascript">
+       $(document).ready(function () {
+           $("button").click(function() {
+               $.get('/allStudent', function (Students) {
+                   var str=`<tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>数学</th>
+            <th>语文</th>
+            <th>英语</th>
+            <th>编程</th>
+            <th>平均分</th>
+            <th>总分</th>
+        </tr>`;
+
+                   for(var i=0;i<Students.length;i++){
+                       str+=`<tr>+
+                           <td>${Students[i].stuNum}</td>
+                           <td>${Students[i].stuName}</td>
+                           <td>${Students[i].stuClass}</td>
+                           <td>${Students[i].math}</td>
+                           <td>${Students[i].Chinese}</td>
+                           <td>${Students[i].English}</td>
+                           <td>${Students[i].program}</td>
+                           <td>${Students[i].avg}</td>
+                           <td>${Students[i].total}</td>`;
+                       $("#tabChild").empty().append(str);
+                   }
+
+               })
+           });
+       });
+    </script>
+
+</head>
+<body>
+<div id="main">
+    <table id="tab" class="table table-hover" border="5" style="text-align: center">
+        <caption><h2>成绩单</h2></caption>
+        <tbody id="tabChild">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>数学</th>
+            <th>语文</th>
+            <th>英语</th>
+            <th>编程</th>
+            <th>平均分</th>
+            <th>总分</th>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <button>展示所有学生</button>
+    <a href="addStudent.html">添加</a>
+    <a href="searchStudent.html">查询</a>
+    <a href="updateStudent.html">修改</a>
+    <a href="deleteStudent.html">删除</a>
+    
+</div>
+</body>
+</html>

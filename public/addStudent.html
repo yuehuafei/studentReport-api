@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../Student.js"></script>
+    <script >
+//         function getInfo() {
+//         var stuNum=document.getElementById("stuNum").value;
+//         var stuName=document.getElementById("stuName").value;
+//         var stuClass=document.getElementById("stuClass").value;
+//         var math=document.getElementById("math").value;
+//         var Chinese=document.getElementById("Chinese").value;
+//         var English=document.getElementById("English").value;
+//         var program=document.getElementById("program").value;
+//         var stu=new Student(stuNum,stuName,stuClass,math,Chinese,English,program);
+//         var strs=stuNum+" "+stuName+" "+stuClass+" "+math+" "+Chinese+" "+English+" "+program;
+//         //检测是否符合规范
+//         if(/^\d{4}\s[\u4E00-\u9FFF]{2,10}\s[\u4E00-\u9FFF]{2,20}\d{4}[\u4E00-\u9FFF]\s((\d\d?|100)\s){3}(\d\d?|100)$/.test(strs)){
+//         alert("学生"+stuName+"添加成功");
+//         //   stu=JSON.stringify(stu);
+//         //  localStorage.setItem(stuNum,stu);
+//         }
+//         else{
+//         alert("输入格式不正确，请重新输入！");
+//         }
+//         }
+//        $(document).ready(function () {
+//            $("#submit").click(function() {
+//                var stuNum=document.getElementById("stuNum").value;
+//                var stuName=document.getElementById("stuName").value;
+//                var stuClass=document.getElementById("stuClass").value;
+//                var math=document.getElementById("math").value;
+//                var Chinese=document.getElementById("Chinese").value;
+//                var English=document.getElementById("English").value;
+//                var program=document.getElementById("program").value;
+//                let find=0;
+//                $.get('/allStudent', function (ans) {
+//                    for(var i=0;i<ans.length;i++){
+//                        if(ans[i].stuNum==stuNum){
+//                            find=1
+//                            alert("该学生已存在！");
+//                        }
+//                    }
+//                    alert(find);
+//                    if(find==0){
+//                        alert("t1")
+//                        var strs=stuNum+" "+stuName+" "+stuClass+" "+math+" "+Chinese+" "+English+" "+program;
+//                        if(/^\d{4}\s[\u4E00-\u9FFF]{2,10}\s[\u4E00-\u9FFF]{2,20}\d{4}[\u4E00-\u9FFF]\s((\d\d?|100)\s){3}(\d\d?|100)$/.test(strs)) {
+//                            var stu=new Student(stuNum,stuName,stuClass,math,Chinese,English,program);
+//                            alert("t2")
+//                            $.post('/student',stu,function (ans) {
+//                                alert("t3")
+//                            });
+//                            alert("学生" + stuName + "添加成功");
+//                        }
+//                        else{
+//                            alert("输入格式不正确，请重新输入！");
+//                        }
+//                    }
+//                })
+//            });
+
+
+            /* $("a").onclick(function () {
+             $.get("/StudentReport.html" ,function(ans){
+
+             })
+             })*/
+//        });
+
+    </script>
+    <script>
+        /*
+        document.addEventListener("DOMContentLoaded", function() {
+            // execute when DOM content is loaded
+            document.getElementById('my-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                return false;
+            })
+        });*/
+    </script>
+    <title>添加学生信息</title>
+    <style>
+        div{
+            width: 600px;
+            height: 300px;
+            background-color:#FFCCFF;
+            margin: 0 auto;
+        }
+        input{
+            width: 70px;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+<form id = "my-form" action="http://localhost:8081/addStudent" method="post">
+    <table class="table table-hover" border="5" style="text-align: center" width="100px">
+        <caption><h2>添加学生信息</h2></caption>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>数学</th>
+            <th>语文</th>
+            <th>英语</th>
+            <th>编程</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="stuNum" name="stuNum"></td>
+            <td><input type="text" id="stuName" name="stuName"></td>
+            <td><input type="text" id="stuClass" name="stuClass"></td>
+            <td><input type="text" id="math" name="math"></td>
+            <td><input type="text" id="Chinese" name="Chinese"></td>
+            <td><input type="text" id="English" name="English"></td>
+            <td><input type="text" id="program" name="program"></td>
+        </tr>
+    </table>
+    <input id="submit" type="submit" value="添加" >
+</form>
+    <a href="StudentReport.html">回主页</a>
+    </div>
+</body>
+</html>

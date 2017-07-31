@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生</title>
+    <link rel="stylesheet" href="StudentReport.html">
+    <script  src="../Student.js"></script>
+    <style>
+        div{
+            width: 650px;
+            height:400px;
+            background-color: #FFCCFF;
+        }
+        input{
+            width: 80px;
+        }
+    </style>
+    <script>
+//        function update(){
+//            var stuNum=document.getElementById("stuNum").value;
+//            var value=localStorage.getItem(stuNum);
+//            var stu=JSON.parse(value);
+//            document.getElementById("num").value=stu.stuNum;
+//            document.getElementById("name").value=stu.stuName;
+//            document.getElementById("class").value=stu.stuClass;
+//            document.getElementById("math").value=stu.math;
+//            document.getElementById("chi").value=stu.Chinese;
+//            document.getElementById("eng").value=stu.English;
+//            document.getElementById("pro").value=stu.program;
+//            localStorage.removeItem(stuNum);
+//        }
+//        function submit(){
+//            var stuNum=document.getElementById("num").value;
+//            var stuName=document.getElementById("name").value;
+//            var stuClass=document.getElementById("class").value;
+//            var math=document.getElementById("math").value;
+//            var Chinese=document.getElementById("chi").value;
+//            var English=document.getElementById("eng").value;
+//            var program=document.getElementById("pro").value;
+//
+//            var stu=new Student(stuNum,stuName,stuClass,math,Chinese,English,program);
+//            stu=JSON.stringify(stu);
+//            localStorage.setItem(stuNum,stu);
+//            alert("修改成功！");
+//        }
+        $(document).ready(function () {
+            $("#btn1").click(function() {
+            $.get('/allStudent',function (Students) {
+                for(var stu of Students){
+                    if(stu.stuNum==document.getElementById("stuNum").value){
+                        document.getElementById("num").value=stu.stuNum;
+                        document.getElementById("name").value=stu.stuName;
+                        document.getElementById("class").value=stu.stuClass;
+                        document.getElementById("math").value=stu.math;
+                        document.getElementById("chi").value=stu.Chinese;
+                        document.getElementById("eng").value=stu.English;
+                        document.getElementById("pro").value=stu.program;
+                    }
+                }
+            });
+        })
+            $("#btn2").click(function () {
+
+            })
+
+            })
+    </script>
+</head>
+<body>
+<div>
+    <p>请输入一个学生的学号,点击修改后即可在文本框中修改</p>
+    <input type="text" id="stuNum" placeholder="请输入学号：">
+    <table id="tab" class="table table-hover" border="5" style="text-align: center">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>数学</th>
+            <th>语文</th>
+            <th>英语</th>
+            <th>编程</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="num"></td>
+            <td><input type="text" id="name"></td>
+            <td><input type="text" id="class"></td>
+            <td><input type="text" id="math"></td>
+            <td><input type="text" id="chi"></td>
+            <td><input type="text" id="eng"></td>
+            <td><input type="text" id="pro"></td>
+        </tr>
+
+    </table>
+   <button id="btn1">修改</button>
+    <button id="btn2">提交修改</button>
+    <a href="StudentReport.html">回主页</a>
+</div>
+</body>
+</html>
